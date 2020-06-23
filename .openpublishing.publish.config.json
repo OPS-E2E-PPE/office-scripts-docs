@@ -1,9 +1,14 @@
 {
   "docsets_to_publish": [
     {
-      "docset_name": "office-scripts-docs",
+      "customized_tasks": {
+        "docset_prebuild": [
+          "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
+        ]
+      },
+      "docset_name": "office-scripts-docs-ppe",
       "build_source_folder": "docs",
-      "build_output_subfolder": "office-scripts-docs",
+      "build_output_subfolder": "office-scripts-docs-ppe",
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
@@ -14,26 +19,13 @@
         "LandingPage": "Content"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "customized_tasks": {
-        "docset_prebuild": [
-          "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
-        ]
-      }
-    },
-    {
-      "docset_name": "office-scripts-docs-ppe",
-      "build_source_folder": "docs",
-      "build_output_subfolder": "office-scripts-docs-ppe",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content"
-      },
-      "build_entry_point": "docs",
       "template_folder": "_themes"
+    }
+  ],
+  "JoinTOCPlugin": [
+    {
+      "ConceptualTOC": "docs/toc.yml",
+      "ReferenceTOCUrl": "/javascript/api/office-scripts/toc.json"
     }
   ],
   "notification_subscribers": [
@@ -52,31 +44,33 @@
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
-  "branch_target_mapping": {},
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "Pdf"
+    ]
+  },
   "need_generate_pdf_url_template": true,
   "targets": {
     "pdf": {
       "template_folder": "_themes.pdf"
     }
   },
-  "docs_build_engine": {
-    "name": "docfx_v3"
-  },
-  "JoinTOCPlugin": [
-    {
-      "ConceptualTOC": "docs/toc.yml",
-      "ReferenceTOCUrl": "/javascript/api/office-scripts/toc.json"
-    }
-  ],
-  "dependent_packages": [
-    {
-      "id": "Microsoft.OpenPublishing.CommonPlugins",
-      "nuget_feed": "https://www.myget.org/F/op/api/v2",
-      "path_to_root": "_dependentPackages/CommonPlugins",
-      "target_framework": "net45",
-      "version": "latest"
-    }
-  ]
+ "dependent_packages": [
+  {
+    "id": "Microsoft.OpenPublishing.CommonPlugins",
+    "nuget_feed": "https://www.myget.org/F/op/api/v2",
+    "path_to_root": "_dependentPackages/CommonPlugins",
+    "target_framework": "net45",
+    "version": "latest"
+  }
+]
 }
