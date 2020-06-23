@@ -20,6 +20,20 @@
           "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
         ]
       }
+    },
+    {
+      "docset_name": "office-scripts-docs-ppe",
+      "build_source_folder": "docs",
+      "build_output_subfolder": "office-scripts-docs-ppe",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
     }
   ],
   "notification_subscribers": [
